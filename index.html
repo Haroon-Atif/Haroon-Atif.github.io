@@ -6,6 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Wait for the DOM to load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all the navigation links
+      var navLinks = document.querySelectorAll('nav ul li a');
+
+      // Loop through each navigation link
+      navLinks.forEach(function(link) {
+        // Add click event listener to each link
+        link.addEventListener('click', function(e) {
+          // Prevent default anchor click behavior
+          e.preventDefault();
+
+          // Get the target section id from the href attribute
+          var targetId = this.getAttribute('href').substring(1);
+
+          // Find the target section
+          var targetSection = document.getElementById(targetId);
+
+          // Scroll to the target section using smooth behavior
+          targetSection.scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
 </head>
 
 <body>
